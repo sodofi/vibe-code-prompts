@@ -12,6 +12,8 @@
 
 Past the following prompt into Claude:
 
+NOTE: make this mobile compatible and responsive.
+
 `I want you to create a lightweight IQ quiz contest. the quiz should be timed and only be 10 questions. At the end it will have a button that says 'see score' and it will generate your IQ quiz score. For the UI, I want you to use a clean UI that mirrors that of other IQ tests. Don't ask IQ questions with images. After the quiz is completed, I want you to have a button that prompts the user to see which answers they got wrong, which one is the right answer, and then explain how the score was calculated. I want you to create a prompt for v0 with an in depth explanation for what I want to build. No need to code the app, just create a detailed prompt. `
 
 ### Creating the Front End
