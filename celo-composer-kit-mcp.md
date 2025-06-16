@@ -48,4 +48,38 @@ This will create an app using Celo Composer templates with Composer Kit UI compo
 
 4. **Token Airdrop / Claim Portal:** Let users mint tokens once after verifying eligibility (e.g., based on Self verification or allowlist).
     - Example: You mint 100 tokens to early users when they connect their wallet.
+  
+**2. Using Self Protocol to check for unique humans**
 
+Add [Self Protocol docs](https://docs.self.xyz/) to Cursor context by clicking @ --> Docs --> Add new doc --> then pasting the link to the documentation.
+```
+I want to use Self Protocol so that the user has to prove they are human before they can claim the token. 
+
+Frontend Requirements:
+
+Replace existing claim button with "Verify Humanity to Claim 10 Tokens"
+On button click, display Self Protocol QR code for verification request
+Poll for verification status or handle verification response
+Update button to "Claim 10 Tokens" once verification succeeds
+Update composer-kit identity UI component to show valid human checkmark on identity card
+
+Backend Requirements:
+
+Implement Self Protocol backend SDK integration (following their quickstart pattern)
+Create endpoint to initiate verification request
+Create endpoint to verify submitted proofs
+Return verification status to frontend
+Ensure proof validation before allowing token claims
+
+Technical Specifications:
+
+Use Self Protocol's QR code generation for verification requests
+Implement proper error handling for failed verifications
+Maintain existing token claim logic, but gate it behind successful human verification
+Update UI state management to track verification status
+Ensure verification state persists appropriately for user session
+
+Expected Flow:
+User clicks verify button → QR code displayed → User scans with Self app → Backend validates proof → UI updates to show verified status → User can claim tokens
+Please implement this integration while maintaining the existing app architecture and user experience patterns.
+```
