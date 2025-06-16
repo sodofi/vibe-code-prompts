@@ -58,6 +58,7 @@ I want to use Self Protocol so that the user has to prove they are human before 
 Frontend Requirements:
 
 Replace existing claim button with "Verify Humanity to Claim 10 Tokens"
+Follow the Self documentation quickstart guide to implement that QRCodeGenerator react component
 On button click, display Self Protocol QR code for verification request
 Poll for verification status or handle verification response
 Update button to "Claim 10 Tokens" once verification succeeds
