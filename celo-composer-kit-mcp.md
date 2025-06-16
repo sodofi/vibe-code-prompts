@@ -67,6 +67,7 @@ Update composer-kit identity UI component to show valid human checkmark on ident
 Backend Requirements:
 
 Implement Self Protocol backend SDK integration (following their quickstart pattern)
+The verification logic to only require isValidProof to be true
 Create endpoint to initiate verification request
 Create endpoint to verify submitted proofs
 Return verification status to frontend
