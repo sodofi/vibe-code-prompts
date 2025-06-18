@@ -85,3 +85,44 @@ Expected Flow:
 User clicks verify button → QR code displayed → User scans with Self app → Backend validates proof → UI updates to show verified status → User can claim tokens
 Please implement this integration while maintaining the existing app architecture and user experience patterns.
 ```
+
+```
+I want to use Self Protocol so that the user has to prove they are human before they can claim the token.
+Frontend Requirements:
+Replace existing claim button with "Verify Humanity to Claim 10 Tokens"
+Follow the Self documentation quickstart guide to implement QRCodeGenerator react component
+CRITICAL: Use default import for QRCodeGenerator: import QRCodeGenerator from '@selfxyz/qrcode';
+CRITICAL: Use shorter scope name (max ~10 characters) like 'my-app' to avoid BigInt size errors
+CRITICAL: Use shorter RPC endpoint like 'https://forno.celo.org' instead of long URLs
+On button click, display Self Protocol QR code for verification request
+Poll for verification status or handle verification response
+Update button to "Claim 10 Tokens" once verification succeeds
+Update composer-kit identity UI component to show valid human checkmark on identity card
+Backend Requirements:
+Implement Self Protocol backend SDK integration (following their quickstart pattern)
+CRITICAL: The verification logic should only require result.isValidDetails.isValidProof to be true, NOT result.isValid
+CRITICAL: Use direct 3-letter ISO country codes like "IRN" and "PRK" instead of countryCodes.IRN constants
+CRITICAL: Use the same shorter scope name as frontend (e.g., 'my-app') to ensure consistency
+CRITICAL: Use the same shorter RPC endpoint as frontend (e.g., 'https://forno.celo.org')
+Create endpoint to initiate verification request
+Create endpoint to verify submitted proofs
+Return verification status to frontend
+Ensure proof validation before allowing token claims
+Technical Specifications:
+Use Self Protocol's QR code generation for verification requests
+CRITICAL: Ensure both frontend and backend use identical scope names and RPC endpoints
+CRITICAL: Keep scope names short (under 10 characters) to prevent "BigInt exceeds maximum size of 31 bytes" errors
+Implement proper error handling for failed verifications
+Maintain existing token claim logic, but gate it behind successful human verification
+Update UI state management to track verification status
+Ensure verification state persists appropriately for user session
+Expected Flow:
+User clicks verify button → QR code displayed → User scans with Self app → Backend validates proof (only checking cryptographic validity) → UI updates to show verified status → User can claim tokens
+Key Implementation Notes:
+BigInt Error Prevention: Use short scope names and RPC URLs to avoid internal hashing limits
+Country Code Format: Use 3-letter ISO codes directly as strings, not SDK constants
+Verification Logic: Only validate isValidProof field, ignore scope/attestation/nationality validation failures
+Import Format: Use default imports for QRCodeGenerator component
+Configuration Consistency: Ensure frontend and backend use identical configuration values
+Please implement this integration while maintaining the existing app architecture and user experience patterns.
+```
